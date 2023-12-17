@@ -23,7 +23,7 @@ public class PalindromeValidator {
     }
 
     public PalindromeValidator integer(int i) {
-        this.s = new Integer(i).toString();
+        this.s = Integer.valueOf(i).toString();
         return this;
     }
 }

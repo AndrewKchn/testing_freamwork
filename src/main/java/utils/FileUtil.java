@@ -1,5 +1,6 @@
 package utils;
 
+import object_mappper.DtoConvert;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -77,5 +78,13 @@ public class FileUtil {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static InputStream getFileInputStream(String filePath, Class<?> configClass) throws FileNotFoundException {
+        InputStream inputStream = configClass.getResourceAsStream(filePath);
+        if (inputStream == null) {
+            inputStream = new FileInputStream(filePath);
+        }
+        return inputStream;
     }
 }
